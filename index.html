@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TradingView News & Calendar</title>
+  <title>TradingView News, Ticker & Calendar</title>
   <style>
     body {
       background-color: #0e0e0e;
@@ -41,6 +41,32 @@
       "locale": "en"
     }
     </script>
+  </div>
+
+  <!-- Ticker Tape -->
+  <div class="widget" style="width: 400px; height: 60px;">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+          "symbols": [
+            { "proName": "NASDAQ:NVDA", "title": "NVDA" },
+            { "proName": "NASDAQ:AAPL", "title": "AAPL" },
+            { "proName": "NASDAQ:TSLA", "title": "TSLA" },
+            { "proName": "CRYPTO:BTCUSD", "title": "BTC" },
+            { "proName": "CRYPTO:ETHUSD", "title": "ETH" },
+            { "proName": "TVC:DXY", "title": "DXY" },
+            { "proName": "OANDA:NAS100USD", "title": "NAS100" },
+            { "proName": "OANDA:SPX500USD", "title": "SPX500" }
+          ],
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "width": "100%",
+        "locale": "en"
+      }
+      </script>
+    </div>
   </div>
 
   <!-- Economic Calendar -->
