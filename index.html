@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TradingView News, Ticker & Calendar</title>
+  <title>TradingView Calendar, Ticker & News</title>
   <style>
     body {
       background-color: #0e0e0e;
@@ -27,23 +27,23 @@
 </head>
 <body>
 
-  <!-- Top Stories (News Feed) -->
-  <div class="widget" style="width: 400px; height: 250px;">
+  <!-- Economic Calendar (Top) -->
+  <div class="widget" style="width: 400px; height: 460px;">
     <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
     {
-      "feedMode": "all_symbols",
       "colorTheme": "dark",
       "isTransparent": true,
-      "displayMode": "regular",
-      "width": "100%",
-      "height": 250,
-      "locale": "en"
+      "locale": "en",
+      "countryFilter": "us",
+      "importanceFilter": "2,3",
+      "width": 390,
+      "height": 460
     }
     </script>
   </div>
 
-  <!-- Ticker Tape -->
+  <!-- Ticker Tape (Middle) -->
   <div class="widget" style="width: 400px; height: 85px;">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
@@ -69,18 +69,18 @@
     </div>
   </div>
 
-  <!-- Economic Calendar -->
-  <div class="widget" style="width: 400px; height: 460px;">
+  <!-- Top Stories (News Feed, Bottom) -->
+  <div class="widget" style="width: 400px; height: 250px;">
     <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
     {
+      "feedMode": "all_symbols",
       "colorTheme": "dark",
       "isTransparent": true,
-      "locale": "en",
-      "countryFilter": "us",
-      "importanceFilter": "2,3",
-      "width": 390,
-      "height": 460
+      "displayMode": "regular",
+      "width": "100%",
+      "height": 250,
+      "locale": "en"
     }
     </script>
   </div>
