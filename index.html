@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TradingView Layout</title>
+  <title>TradingView News & Calendar</title>
   <style>
     body {
       background-color: #0e0e0e;
@@ -10,26 +10,11 @@
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 20px;
       padding: 20px;
       margin: 0;
       box-sizing: border-box;
-      align-items: center; /* keeps center aligned */
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: fit-content;
-    }
-    .main {
-      display: flex;
-      gap: 20px;
-    }
-    .charts {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
     }
     .widget {
       background: #1e1e1e;
@@ -42,117 +27,37 @@
 </head>
 <body>
 
-  <div class="container">
+  <!-- Top Stories (News Feed) -->
+  <div class="widget" style="width: 400px; height: 250px;">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+    {
+      "feedMode": "all_symbols",
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "regular",
+      "width": "100%",
+      "height": 250,
+      "locale": "en"
+    }
+    </script>
+  </div>
 
-    <!-- Top: News Feed -->
-    <div class="widget" style="width: 790px; height: 250px;">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-      {
-        "feedMode": "all_symbols",
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "displayMode": "regular",
-        "width": "100%",
-        "height": 250,
-        "locale": "en"
-      }
-      </script>
-    </div>
-
-    <!-- Under News: Ticker Tape -->
-    <div class="widget" style="width: 790px; height: 60px;">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-            "symbols": [
-              { "proName": "NASDAQ:NVDA", "title": "NVDA" },
-              { "proName": "NASDAQ:AAPL", "title": "AAPL" },
-              { "proName": "NASDAQ:TSLA", "title": "TSLA" },
-              { "proName": "CRYPTO:BTCUSD", "title": "BTC" },
-              { "proName": "CRYPTO:ETHUSD", "title": "ETH" },
-              { "proName": ":DXY", "title": "DXY" },
-              { "proName": "OANDA:NAS100USD", "title": "NAS100" },
-              { "proName": "OANDA:SPX500USD", "title": "SPX500" }
-            ],
-          "colorTheme": "dark",
-          "isTransparent": false,
-          "displayMode": "adaptive",
-          "locale": "en"
-        }
-        </script>
-      </div>
-    </div>
-
-    <!-- Middle: Charts & Calendar -->
-    <div class="main">
-
-      <!-- Left Side: Charts -->
-      <div class="charts">
-
-        <!-- Top Mini Chart Widget (NDX) -->
-        <div class="widget" style="width: 350px; height: 220px;">
-          <div id="mini-chart-ndx"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {
-            "symbol": "NASDAQ:NDX",
-            "width": 350,
-            "height": 220,
-            "locale": "en",
-            "dateRange": "3M",
-            "colorTheme": "dark",
-            "trendLineColor": "rgba(41, 98, 255, 1)",
-            "underLineColor": "rgba(41, 98, 255, 0.3)",
-            "isTransparent": true,
-            "autosize": false,
-            "largeChartUrl": ""
-          }
-          </script>
-        </div>
-
-        <!-- Bottom Mini Chart Widget (SPX) -->
-        <div class="widget" style="width: 350px; height: 220px;">
-          <div id="mini-chart-spx"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {
-            "symbol": "SPREADEX:SPX",
-            "width": 350,
-            "height": 220,
-            "locale": "en",
-            "dateRange": "3M",
-            "colorTheme": "dark",
-            "trendLineColor": "rgba(41, 98, 255, 1)",
-            "underLineColor": "rgba(41, 98, 255, 0.3)",
-            "isTransparent": true,
-            "autosize": false,
-            "largeChartUrl": ""
-          }
-          </script>
-        </div>
-
-      </div>
-
-      <!-- Right Side: Economic Calendar -->
-      <div class="widget" style="width: 400px; height: 460px;">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-        {
-          "colorTheme": "dark",
-          "isTransparent": true,
-          "locale": "en",
-          "countryFilter": "us",
-          "importanceFilter": "2,3",
-          "width": 390,
-          "height": 460
-        }
-        </script>
-      </div>
-
-    </div>
-
+  <!-- Economic Calendar -->
+  <div class="widget" style="width: 400px; height: 460px;">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+    {
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "locale": "en",
+      "countryFilter": "us",
+      "importanceFilter": "2,3",
+      "width": 390,
+      "height": 460
+    }
+    </script>
   </div>
 
 </body>
 </html>
-
